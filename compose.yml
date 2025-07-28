@@ -1,0 +1,9 @@
+services:
+  lisho:
+    image: ghcr.io/d3rjust1n/lisho
+    container_name: lisho
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./mappings.txt:/app/mappings.txt

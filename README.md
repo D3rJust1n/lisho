@@ -9,6 +9,31 @@ Token requested: mars
 Token requested: asdfasdf
 ...
 ```
+## Installation and Run using Docker
+
+**Information**
+
+To get started, you will need Docker. See [the docker install docs](https://docs.docker.com/engine/install/).  
+To create our container we use [docker compose](https://docs.docker.com/compose/).
+
+1. Create a directory for the project where you can store the needed files
+2. Copy the `compose.yml` and the `mappings.txt` to the directory
+    ```bash
+    curl -O https://raw.githubusercontent.com/d3rjust1n/lisho/main/compose.yml && \
+    curl -O https://raw.githubusercontent.com/d3rjust1n/lisho/main/mappings.txt 
+    ```
+3. Deploy the stack
+    ```bash
+    docker compose up -d
+    ```
+
+The container should start and the logs should display `Listening on 0.0.0.0:8080 (3 links)` 
+
+To make the container accessible on the Internet, I recommend the blog article by Jojodicus ["Cloudflare Tunnel: Accessing your Homelab from Anywhere"](https://dittrich.pro/cloudflare-tunnel-homelab/). Of course, you can also use existing or other solutions.
+
+## Post-Install
+To add or remove link mappings, simply edit the mappings.txt file in your Lisho folder and save the changes.  
+It is not necessary to restart the container, the changes are recognized automatically.
 
 ## Adding Link Mappings
 Lisho reads mappings from a simple text file.
@@ -33,7 +58,7 @@ There are some files that are compiled into `lisho` by default:
 * `404.html` for 404 errors
 
 You can override these defaults by simply adding a mapping to your preferred pages, in which case `lisho` will redirect them as usual.
-Similarly you can also set a favicon by redirecting it somewhere on the internet where your favicon is hosted.
+Similarly, you can also set a favicon by redirecting it somewhere on the internet where your favicon is hosted.
 
 ```
 # override index page
