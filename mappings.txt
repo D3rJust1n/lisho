@@ -1,0 +1,4 @@
+cb https://codeberg.org
+yt https://youtube.com
+git https://github.com
+
